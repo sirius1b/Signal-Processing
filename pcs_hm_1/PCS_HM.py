@@ -21,7 +21,7 @@ def contconv(x1,x2,t1,t2,dt):
 	return [out,time]
 
 
-dt = 0.01
+dt = 0.001
 t1 = np.arange(-2,-1,dt)
 t2 = np.arange(1,3,dt)
 x1 = 3*np.ones(len(t1))
@@ -52,12 +52,12 @@ def generateVt(dt,a):
 	return vt,time
 
 def signalAddtition(x1,x2,t1,t2,dt,a,b):
-	t1 = np.around(t1,decimals=2)
-	t2 = np.around(t2,decimals=2)
+	t1 = np.around(t1,decimals=3)
+	t2 = np.around(t2,decimals=3)
 	mint = min(min(t1),min(t2))
 	maxt = max(max(t1),max(t2))
 	t3 = np.arange(mint,maxt,dt)
-	t3 = np.around(t3,decimals=2)
+	t3 = np.around(t3,decimals=3)
 	x3=[]
 	for i  in range(len(t3)):
 		v = 0
@@ -180,8 +180,8 @@ plt.title('PT')
 plt.xlabel('Time(t)->')
 plt.grid()
 
-bc=generateB(1000)
-bs=generateB(1000)
+bc=generateB(10000)
+bs=generateB(10000)
 uct = MultirateSys(bc,pt[0],int(1/dt))
 ust = MultirateSys(bs,pt[0],int(1/dt))
 Iphase = upCos(uct[0],uct[1],4*np.pi,0,1)
@@ -200,18 +200,29 @@ plt.title('Us(t)')
 plt.xlabel('Time(t)->')
 plt.grid()
 
-plt.subplot(4,4,11)
-upt = signalAddtition(Iphase[0],Qphase[0],Iphase[1],Qphase[1],dt,1,-1)
-plt.plot(upt[1],upt[0])
-plt.title('Up(t)')
-plt.xlabel('Time(t)->')
-plt.grid()
-
 ########## LPF
 lptime = np.arange(0,0.25,dt)
 lph=1*lptime
 lph = np.where(lph<1,1,lph)
 ##########
+
+
+
+plt.subplot(4,4,11)
+upt = signalAddtition(Iphase[0],Qphase[0],Iphase[1],Qphase[1],dt,1,-1)
+plt.plot(upt[1],upt[0])
+# fft =np.fft.fft(lph)
+# plt.plot(np.absolute(fft))
+plt.title('Up(t)')
+plt.xlabel('Time(t)->')
+plt.grid()
+
+
+
+
+
+
+
 
 o1 = upCos(upt[0],upt[1],4*np.pi,0,1)
 o2 = upSin(upt[0],upt[1],4*np.pi,0,1)
@@ -237,7 +248,7 @@ vst = contconv(o2[0],lph,o2[1][0],lptime[0],dt)
 
 
 plt.subplot(4,4,14)
-plt.plot(vct[1],vct[0])
+plt.plot(vct[1],-vct[0])
 plt.title("Vc(t) with theta pi/4")
 plt.grid()
 plt.xlabel('Time(t)->')
