@@ -21,7 +21,7 @@ def contconv(x1,x2,t1,t2,dt):
 	return [out,time]
 
 
-dt = 0.001
+dt = 0.01
 t1 = np.arange(-2,-1,dt)
 t2 = np.arange(1,3,dt)
 x1 = 3*np.ones(len(t1))
