@@ -1,4 +1,6 @@
-
+% Lavanya Verma
+% TUT 1 of Control Theory 
+% Spring 2020  
 %*************** Part 1
 x = 5;
 y = 2;

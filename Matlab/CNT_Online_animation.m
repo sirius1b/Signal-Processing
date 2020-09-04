@@ -19,7 +19,7 @@ time = 0:0.01:9;
 des = sin(3*time);
 % des = zeros(2,length(time));
 % des(1,:) = 10;
-des1 = getRand(0, 2 ,time);   
+des1 = getRand(0, 0.3 ,time);   
 
 
 %**********************************************************
@@ -34,8 +34,8 @@ XD = animatedline("Color","g");
 legend("Desired Trajectory","Error","Followed Trajectory")
 count = 1;
 while(t<=tf)
- 	xd = des(:,count);
-%     xd = des1(count);
+%  	xd = des(:,count);
+    xd = des1(count);
 	u  = -k*(xh);
 	y  = C*x;
 	addpoints(X,time(count),x(1));
