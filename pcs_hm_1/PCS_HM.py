@@ -19,7 +19,7 @@ def contconv(x1,x2,t1,t2,dt):
 		out.append(var)
 	out = dt*np.array(out)
 	return [out,time]
-
+ 	
 
 dt = 0.01
 t1 = np.arange(-2,-1,dt)

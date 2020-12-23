@@ -29,7 +29,7 @@ def DFT2(x): # DTFT
 	n = np.arange(size)
 	n = n.reshape(1,size)
 	arr = np.array([],dtype=np.complex128)
-	for i in  range(-int(x.shape[0]/2),int(x.shape[0]/2)):
+	for i in  range(0,int(x.shape[0])):
 		W = np.exp(-2j*np.pi*n*i/size)
 		W1 = np.exp(-2j*np.pi*i/(4*size))
 		W2 = np.exp(-2j*np.pi*i*2/(4*size))
@@ -110,7 +110,7 @@ if __name__=='__main__':
 	plt.title("Phase Response")
 
 	plt.subplot(3,2,4)
-	invSignal = DFT1(fTransform )
+	invSignal = DFT11(fTransform )
 	plt.plot(axis,invSignal)
 
 	plt.title("After Dtft")
