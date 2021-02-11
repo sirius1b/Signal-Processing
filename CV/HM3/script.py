@@ -1,5 +1,7 @@
 from PIL import Image
 import numpy as np
+import matplotlib.pyplot as plt
+
 
 def saliency_map(dat): #naive implementation
 	S_map = np.full(dat.shape[0:2],-1)
@@ -35,9 +37,9 @@ if __name__== '__main__':
 	# np.savetxt('S_map.csv',S_map,delimiter = ',')
 	S_map = np.genfromtxt('S_map.csv',delimiter=',')
 	mx = S_map.max() ;  mn  = S_map.min()
-	s = np.array(list(map(lambda x: np.ceil((x- mn)*255/mx),S_map)))
-	sal_img = Image.fromarray(s)
-	sal_img.show()
+	# s = np.array(list(map(lambda x: np.ceil((x- mn)*255/mx),S_map)))
+	# sal_img = Image.fromarray(s)
+	# sal_img.show()
 
-
-
+	plt.imshow(S_map)
+	plt.show()
