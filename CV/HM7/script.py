@@ -35,7 +35,7 @@ if __name__ == '__main__':
 	for i in range(256):
 		d2 [d1 == i] = 255*fg_table[i]
 		d3 [d1 == i] = 255*(1 - bg_table[i])
-		val = 0 if (fg_table[i] + 1 - bg_table[i])/2 <0.5 else 255
+		val = 0 if (fg_table[i] + 1 - bg_table[i])/2 <=0.5 else 255
 		d4 [d1 ==i] = val
 
 
