@@ -59,12 +59,12 @@ if __name__ == '__main__':
 	# kx = np.array([[1,0,-1],[2,0,-2],[1,0,-1]])
 	# ky = np.array([[1,2,1],[0,0,0],[-1,-2,-1]])
 
-	img = Image.open('straw.png')
-	data = np.asarray(img)
+	# img = Image.open('straw.png')
+	# data = np.asarray(img)
 
 	# H1 = convolve2d(data,kx)
 	# H2 = convolve2d(data,ky)
 	# plt.imshow(np.hypot(H1,H2),cmap=cm.gray_r)
 	# plt.show()
 
-	fVector = HOG(data)
+	# fVector = HOG(data)
