@@ -4,4 +4,6 @@ Forground mask of MNIST images are segmented using total sum of squares(like ots
 Semantic segmentation is performed using the UNET inspired architecture.
 #### Results
 <img src="Q4.png">
-[Report](Report.pdf)
+
+
+- [Report](Report.pdf)
